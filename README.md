@@ -34,8 +34,40 @@ Navigate to project folder
 
 ## Running Tests
 
-To run tests, run the following command
+### To start tests, run the following command
+- In QA environment
 
 ```bash
-  mvn clean install
+  mvn clean install -Denv="qa"
 ```
+
+- In DEV environment
+
+```bash
+  mvn clean install -Denv="dev"
+```
+
+- In staging environment
+
+```bash
+  mvn clean install -Denv="stage"
+```
+- In UAT environment
+
+```bash
+  mvn clean install -Denv="uat"
+```
+
+- In production environment
+
+```bash
+  mvn clean install -Denv="prod"
+```
+- Single test with browser & testing environment 
+
+```bash
+  mvn clean install -Dtest=LoginPageTest -Dbrowser=firefox -Dbrowserversion=91.10
+```
+
+## Report
+Extent report is getting generated in 

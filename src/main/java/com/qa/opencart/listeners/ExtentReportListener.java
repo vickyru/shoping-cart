@@ -1,6 +1,7 @@
 package com.qa.opencart.listeners;
 
 import java.io.IOException;
+import java.net.InetAddress;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -39,18 +40,21 @@ public class ExtentReportListener extends DriverFactory implements ITestListener
 				e.printStackTrace();
 			}
 		}
-		
-		extentReports = new ExtentReports();
-		ExtentSparkReporter reporter = new ExtentSparkReporter(OUTPUT_FOLDER + FILE_NAME);
-		reporter.config().setReportName("Open Cart Automation Test Results");
-		extentReports.attachReporter(reporter);
-		extentReports.setSystemInfo("System", "MAC");
-		extentReports.setSystemInfo("Author", "Prashant Kumar");
-		extentReports.setSystemInfo("Build#", "1.1");
-		extentReports.setSystemInfo("Team", "OMS");
-		extentReports.setSystemInfo("Customer Name", "NAL");
+		try {
+			extentReports = new ExtentReports();
+			ExtentSparkReporter reporter = new ExtentSparkReporter(OUTPUT_FOLDER + FILE_NAME);
+			reporter.config().setReportName("Open Cart Automation Test Results");
+			extentReports.attachReporter(reporter);
+			extentReports.setSystemInfo("System", System.getProperty("os.name").toLowerCase());
+			extentReports.setSystemInfo("Author", InetAddress.getLocalHost().getHostName());
+			extentReports.setSystemInfo("Build#", "1.1");
+			extentReports.setSystemInfo("Team", "Flipkart");
+			extentReports.setSystemInfo("Customer Name", "Shopping Cart");
 
-		//extentReports.setSystemInfo("ENV NAME", System.getProperty("env"));
+			//extentReports.setSystemInfo("ENV NAME", System.getProperty("env"));
+		} catch (Exception exeception){
+			exeception.printStackTrace();
+		}
 
 		return extentReports;
 	}
