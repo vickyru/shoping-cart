@@ -69,5 +69,5 @@ Navigate to project folder
   mvn clean install -Dtest=LoginPageTest -Dbrowser=firefox -Dbrowserversion=91.10
 ```
 
-## Reports
-Extent report is getting generated in 
+## Report
+Extent report is getting generated in build folder
