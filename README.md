@@ -70,4 +70,4 @@ Navigate to project folder
 ```
 
 ## Report
-Extent report is getting generated in build folders
+Extent report is getting generated in build folder
